@@ -1,0 +1,61 @@
+/* MenuEmpleado.css */
+
+/* Contenedor principal del menú */
+.menu-container {
+    background-color: #ffffff;
+    color: #001f3f; /* Azul marino */
+    font-family: Arial, sans-serif;
+    width: 400px; /* Ajusta el ancho a tu gusto */
+    margin: 50px auto; /* Centra horizontalmente */
+    padding: 20px;
+    border: 2px solid #001f3f;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .menu-container h2 {
+    margin-bottom: 20px;
+    color: #001f3f;
+  }
+  
+  /* Envoltura de la navegación */
+  nav ul {
+    list-style-type: none; /* Quita viñetas de la lista */
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Cada opción del menú */
+  nav li {
+    margin: 15px 0; /* Separación vertical */
+  }
+  
+  /* Estilo de los enlaces */
+  nav a {
+    text-decoration: none;
+    color: #001f3f; /* Azul marino */
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  nav a:hover {
+    color: red; /* Un azul más oscuro al pasar el ratón */
+  }
+  
+  /* Botón de Cerrar Sesión */
+  .logout-button {
+    background-color: #001f3f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .logout-button:hover {
+    background-color: red;
+  }
+  

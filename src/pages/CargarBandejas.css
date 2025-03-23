@@ -1,0 +1,136 @@
+/* CargarBandejas.css */
+
+/* Contenedor principal */
+.container {
+    background-color: #ffffff;
+    color: #001f3f;
+    font-family: Arial, sans-serif;
+    width: 500px;               /* Ancho fijo para que se vea uniforme */
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #001f3f;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;         /* Centra el título y textos */
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #001f3f;
+  }
+  
+  /* Cada fila del formulario en columna: label arriba, input abajo */
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Etiqueta */
+  .form-row label {
+    font-weight: bold;
+    color: #001f3f;
+    margin-bottom: 5px;
+  }
+  
+  /* Input con ancho uniforme */
+  .form-row input {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Mensaje de error de ruta (opcional) */
+  .error-ruta {
+    color: red;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  /* Botones */
+  button {
+    background-color: #001f3f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px 5px 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button:hover {
+    background-color: #003366;
+  }
+  
+  /* Botón de volver al menú */
+
+  .volver-button:hover {
+    background-color: #003366;
+  }
+  
+  /* Overlay del modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    z-index: 9999;
+  }
+
+  
+  /* Contenido del modal */
+  .modal-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  .modal-content h3 {
+    margin-top: 0;
+    color: #001f3f;
+  }
+  
+  .modal-content button {
+    margin: 0 5px;
+    background-color: #001f3f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .modal-content button:hover {
+    background-color: #003366;
+  }
+  .main-buttons {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los botones */
+    gap: 20px;               /* Espacio horizontal entre ellos */
+    margin-top: 20px;        /* Espacio extra arriba */
+  }
+  
+  /* Botones en el formulario */
+  form button {
+    background-color: #001f3f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  form button:hover {
+    background-color: #003366;
+  }
+  

@@ -1,0 +1,103 @@
+/* Contenedor principal */
+.login-empleado-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;       /* Fondo blanco */
+  color: #001f3f;                 /* Texto azul oscuro */
+  border: 2px solid #001f3f;      /* Borde azul oscuro */
+  border-radius: 8px;
+  text-align: center;             /* Centra el texto dentro del contenedor */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+
+  /* Para centrar el contenido interno verticalmente,
+     descomenta si quieres un alto fijo, ej:
+     height: 500px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+  */
+}
+
+/* Título centrado */
+.login-empleado-container h2 {
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Opcional, si quieres estilo similar a "MENÚ" */
+}
+
+/* Formulario */
+.login-empleado-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centra horizontalmente cada form-group */
+  gap: 15px;            /* Espacio vertical entre elementos */
+}
+
+/* Cada grupo de campos */
+.login-empleado-form .form-group {
+  width: 100%;          /* O puedes reducirlo si quieres inputs más estrechos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centra el label y el input */
+}
+
+/* Etiquetas (labels) */
+.login-empleado-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #001f3f;
+  text-align: center;   /* Centra el texto de la etiqueta */
+}
+
+/* Inputs de texto y contraseña */
+.login-empleado-form input {
+  width: 80%;           /* Ajusta si quieres inputs más o menos anchos */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;   /* Centra el texto que escribe el usuario */
+}
+
+/* Botón de Iniciar Sesión */
+.btn-login {
+  padding: 10px 16px;
+  background-color: #001f3f;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+  background-color: red; /* Un poco más oscuro al hover */
+}
+
+/* Mensaje de error */
+.error-message {
+  background-color: #e74c3c; /* Rojo */
+  color: #fff;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Enlace de registro */
+.registro-link {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.registro-link a {
+  color: #001f3f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.registro-link a:hover {
+  text-decoration: underline;
+}

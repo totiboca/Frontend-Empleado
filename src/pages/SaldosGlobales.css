@@ -1,0 +1,164 @@
+/* SaldosGlobales.css */
+
+/* Contenedor principal que ocupa 100% del ancho y hasta 1200px de ancho */
+.saldos-container {
+    background-color: #ffffff;
+    color: #001f3f;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    max-width: 1600px; 
+    margin: 30px auto;
+    padding: 20px;
+    border: 2px solid #001f3f;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .saldos-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* Filtros: se mantienen como estaban */
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 20px;
+    margin-bottom: 20px;
+   
+  }
+  
+  .filtro-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filtro-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .filtro-item input,
+  .filtro-item select {
+    width: 150px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .filtrar-button {
+    background-color: #001f3f;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    height: 44px;
+    align-self: center;
+  }
+  
+  .filtrar-button:hover {
+    background-color: #003366;
+  }
+  
+  /* Layout principal en flex para poner tabla grande a la izquierda y tablas a la derecha */
+  .layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Sección izquierda (tabla grande) */
+  .layout-left {
+    flex: 2;                /* Ocupa ~2 partes del espacio */
+    overflow-x: auto;       /* Si la tabla es muy ancha, aparece scroll horizontal */
+  }
+  
+  /* Sección derecha (tablas ciudad y mes) */
+  .layout-right {
+    flex: 1;                /* Ocupa ~1 parte del espacio */
+    overflow-x: auto;       /* Scroll si es muy ancha */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Tabla principal y tablas de ciudad/mes con ancho 100%, adaptándose al contenedor */
+  table {
+    table-layout: auto;    /* Permite que las columnas se adapten al contenido */
+    width: 100%;           /* Ocupa el 100% del contenedor */
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  /* Encabezados y celdas */
+  table th,
+  table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  
+    /* Permite que el texto se parta en varias líneas si es muy largo */
+    white-space: normal;
+  }
+  
+  /* Encabezados con fondo y cursor */
+  table th {
+    background-color: #f0f8ff;
+    color: #001f3f;
+    cursor: pointer;
+  }
+  table th:hover {
+    color: red; /* Efecto hover en el texto del th */
+  }
+  
+  /* Botones dentro de la tabla */
+  table button {
+    background-color: #001f3f;
+    color: #f8f8f8;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  table button:hover {
+    background-color: #003366;
+    color: red;
+  }
+  
+  /* Tablas de totales */
+  .totales-table {
+    margin-top: 30px;
+  }
+  .totales-table h3 {
+    margin-bottom: 10px;
+  }
+  
+  /* Nuevo contenedor para el filtro de la Tabla Mes */
+.month-filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Reducir el margen inferior de los títulos de las tablas dentro del panel derecho */
+.layout-right h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Opcional: estilo para mostrar la ruta seleccionada */
+.selected-route {
+  margin: 0 0 10px 0;
+  font-style: italic;
+  color: #0c0b45;
+  text-align: left;
+  padding-left: 10px;
+}
