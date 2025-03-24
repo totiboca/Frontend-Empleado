@@ -3,7 +3,7 @@ import axios from "axios";
 
 const API = axios.create({
 //   baseURL: "https://prueba-bandejas-production.up.railway.app/api", 
-baseURL: "http://localhost:5000/api",
+baseURL: "https://backend-v1-z420.onrender.com/api",
 });
 
 export default API;
