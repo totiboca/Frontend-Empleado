@@ -11,7 +11,7 @@ function GestionarMovimientos() {
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, "0"); // getMonth() devuelve 0-11
     const dd = String(today.getDate()).padStart(2, "0");
-    const ddd = String(today.getDate()+1).padStart(2, "0");
+    const ddd = String(today.getDate() + 1).padStart(2, "0");
     const todayLocal = `${yyyy}-${mm}-${dd}`;
     const todayLocal2 = `${yyyy}-${mm}-${ddd}`;
 
