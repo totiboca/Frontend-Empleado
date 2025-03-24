@@ -93,6 +93,7 @@ const [remito, setRemito] = useState("");
       lleva: mov.lleva,
       trae: mov.trae,
       n_remito: mov.n_remito,
+      fecha_carga: mov.fecha_carga,
     });
   };
 
@@ -212,6 +213,7 @@ const [remito, setRemito] = useState("");
             <th>Nombre</th>
             <th>Carga</th>
             <th>Devolución</th>
+            <th>Fecha Carga</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -289,6 +291,21 @@ const [remito, setRemito] = useState("");
                       />
                     ) : (
                       devolucion
+                    )}
+                  </td>
+                  {/* Fecha Carga */}
+                  <td>
+                    {isEditing ? (
+                      <input
+                        type="date"
+                        name="fecha_carga"
+                        value={
+                          new Date(editingData.fecha_carga).toISOString().substr(0, 10)
+                        }
+                        onChange={handleChange}
+                      />
+                    ) : (
+                      new Date(mov.fecha_carga).toLocaleDateString()
                     )}
                   </td>
 
