@@ -228,6 +228,15 @@ const [remito, setRemito] = useState("");
               const carga = Number(mov.lleva || 0);
               const devolucion = Number(mov.trae || 0);
 
+              // Helper para mostrar dd/mm/yyyy si quieres
+              const mostrarFecha = (fecha) => {
+                if (!fecha) return "";
+                // fecha viene en formato "YYYY-MM-DD"
+                const [y, m, d] = fecha.split("-");
+                return `${d}/${m}/${y}`; // dd/mm/yyyy
+              };
+
+
               return (
                 <tr key={mov.id_movimiento}>
                   {/* Fecha Remito */}
@@ -242,7 +251,7 @@ const [remito, setRemito] = useState("");
                         onChange={handleChange}
                       />
                     ) : (
-                      new Date(mov.fecha_remito).toLocaleDateString()
+                      mostrarFecha(mov.fecha_remito)
                     )}
                   </td>
 
