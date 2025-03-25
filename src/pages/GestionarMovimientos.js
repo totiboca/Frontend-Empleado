@@ -251,7 +251,7 @@ const [remito, setRemito] = useState("");
                         onChange={handleChange}
                       />
                     ) : (
-                      mostrarFecha(mov.fecha_remito)
+                      mostrarFecha(mov.fecha_remito).toLocaleDateString()
                     )}
                   </td>
 
