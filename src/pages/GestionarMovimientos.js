@@ -227,15 +227,7 @@ const [remito, setRemito] = useState("");
               const isEditing = editingId === mov.id_movimiento;
               const carga = Number(mov.lleva || 0);
               const devolucion = Number(mov.trae || 0);
-
-              // Helper para mostrar dd/mm/yyyy si quieres
-              const mostrarFecha = (fecha) => {
-                if (!fecha) return "";
-                // fecha viene en formato "YYYY-MM-DD"
-                const [y, m, d] = fecha.split("-");
-                return `${d}/${m}/${y}`; // dd/mm/yyyy
-              };
-
+              
 
               return (
                 <tr key={mov.id_movimiento}>
@@ -251,7 +243,7 @@ const [remito, setRemito] = useState("");
                         onChange={handleChange}
                       />
                     ) : (
-                      mostrarFecha(mov.fecha_remito).toLocaleDateString()
+                      new Date(mov.fecha_remito).toLocaleDateString()
                     )}
                   </td>
 
