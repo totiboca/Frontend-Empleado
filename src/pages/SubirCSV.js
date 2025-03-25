@@ -59,6 +59,25 @@ function SubirCSV() {
     }
   };
 
+    // Nueva función para borrar todos los registros de la tabla 'movimientos'
+  const handleDeleteAll = async () => {
+    if (!window.confirm("¿Estás seguro de borrar TODOS los registros de la tabla movimientos?")) {
+      return;
+    }
+    try {
+      const resp = await API.delete("/empleado/movimientos/all", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      alert(resp.data.msg);
+      // Si quieres, podrías refrescar el historial o hacer alguna otra acción
+    } catch (error) {
+      console.error("Error al borrar todos los registros:", error);
+      alert("No se pudieron borrar los registros");
+    }
+  };
+
+
+
   const handleBack = () => {
     navigate("/menu");
   };
@@ -75,6 +94,13 @@ function SubirCSV() {
           </button>
         </div>
       </form>
+
+       {/* Botón para borrar todos los movimientos */}
+       <div className="delete-all-container">
+        <button type="button" onClick={handleDeleteAll} className="delete-button">
+          Borrar TODOS los movimientos
+        </button>
+      </div>
 
       <div className="uploads-list">
         <h3>Historial de Subidas</h3>

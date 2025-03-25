@@ -80,3 +80,18 @@
     color: #001f3f;
   }
   
+  .delete-button {
+    background-color: #ff4136; /* Rojo */
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .delete-button:hover {
+    background-color: #c73228;
+  }
+  
