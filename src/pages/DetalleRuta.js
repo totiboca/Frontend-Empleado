@@ -87,6 +87,9 @@ function DetalleRuta() {
       </button>
 </div>
 
+
+
+
       <table>
         <thead>
           <tr>
@@ -106,9 +109,12 @@ function DetalleRuta() {
               const carga = Number(mov.lleva) || 0;
               const devolucion = Number(mov.trae) || 0;
               const saldoDelDia = carga - devolucion;
+              const formatDateUTC = (dateStr) => {
+                return new Date(dateStr).toLocaleDateString("en-GB", { timeZone: "UTC" });
+              };
               return (
                 <tr key={index}>
-                  <td>{new Date(mov.fecha_remito).toLocaleDateString()}</td>
+                  <td>{ formatDateUTC(mov.fecha_remito)}</td>
                   <td>{carga}</td>
                   <td>{devolucion}</td>
                   <td>{saldoDelDia}</td>

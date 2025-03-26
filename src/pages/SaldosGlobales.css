@@ -162,3 +162,53 @@
   text-align: left;
   padding-left: 10px;
 }
+
+.menu-button-container {
+  position: relative; /* Para poder posicionar el dropdown relativo al botón */
+  margin-bottom: 15px;
+  text-align: right; /* O left/center, según prefieras */
+}
+
+/* Estilo del botón principal */
+.menu-button {
+  background-color: #001f3f;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.menu-button:hover {
+  background-color: #003366;
+}
+
+/* Contenedor del menú desplegable */
+.menu-dropdown {
+  position: absolute; /* Para que se superponga */
+  right: 10px;        /* Ajusta para alinearlo a la derecha o izquierda */
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: left;  /* Para alinear el texto de las opciones */
+}
+
+/* Botones dentro del menú */
+.menu-dropdown button {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  color: #001f3f;
+  border: none;
+  text-align: left;
+  padding: 8px 0;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.menu-dropdown button:hover {
+  background-color: #e0e0e0;
+}

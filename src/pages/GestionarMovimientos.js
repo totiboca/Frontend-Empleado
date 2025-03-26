@@ -85,6 +85,12 @@ const [remito, setRemito] = useState("");
     }
   };
 
+//Para visualizar la fecha correcta
+  const formatDateUTC = (dateStr) => {
+    return new Date(dateStr).toLocaleDateString("en-GB", { timeZone: "UTC" });
+  };
+  
+
   // Editar inline
   const handleEditar = (mov) => {
     setEditingId(mov.id_movimiento);
@@ -243,7 +249,7 @@ const [remito, setRemito] = useState("");
                         onChange={handleChange}
                       />
                     ) : (
-                      new Date(mov.fecha_remito).toLocaleDateString()
+                      formatDateUTC(mov.fecha_remito)
                     )}
                   </td>
 
