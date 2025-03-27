@@ -202,13 +202,14 @@
   width: 100%;
   background-color: transparent;
   color: #001f3f;
+
   border: none;
   text-align: left;
   padding: 8px 0;
   cursor: pointer;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .menu-dropdown button:hover {
-  background-color: red;
+ color: red;
 }
