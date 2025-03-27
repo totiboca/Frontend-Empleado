@@ -183,6 +183,7 @@
 
 .menu-button:hover {
   background-color: #003366;
+  color: red;
 }
 
 /* Contenedor del menú desplegable */
