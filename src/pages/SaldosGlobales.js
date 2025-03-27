@@ -13,27 +13,7 @@ const toggleMenu = () => {
   setMenuOpen(!menuOpen);
 };
 
-<div className="menu-button-container">
-  <button className="menu-button" onClick={toggleMenu}>
-    Menú
-  </button>
-  {menuOpen && (
-    <div className="menu-dropdown">
-      <button onClick={() => navigate("/cargar-bandejas")}>
-        Cargar Bandejas
-      </button>
-      <button onClick={() => navigate("/gestionar-movimientos")}>
-        Gestionar Movimientos
-      </button>
-      <button onClick={() => navigate("/subir-csv")}>
-        Subir CSV
-      </button>
-      <button onClick={() => navigate("/saldos")}>
-        Ver Saldos
-      </button>
-    </div>
-  )}
-</div>
+
 
   // Filtros (tabla principal)
   const [rutaFilterMes, setRutaFilterMes] = useState("");
@@ -249,6 +229,27 @@ const toggleMenu = () => {
 
   return (
     <div className="saldos-container">
+      <div className="menu-button-container">
+  <button className="menu-button" onClick={toggleMenu}>
+    Menú
+  </button>
+  {menuOpen && (
+    <div className="menu-dropdown">
+      <button onClick={() => navigate("/cargar-bandejas")}>
+        Cargar Bandejas
+      </button>
+      <button onClick={() => navigate("/gestionar-movimientos")}>
+        Gestionar Movimientos
+      </button>
+      <button onClick={() => navigate("/subir-csv")}>
+        Subir CSV
+      </button>
+      <button onClick={() => navigate("/saldos")}>
+        Ver Saldos
+      </button>
+    </div>
+  )}
+</div>
       <h2>Saldos de todas las rutas</h2>
 
       {/* Filtros (tabla principal) */}
