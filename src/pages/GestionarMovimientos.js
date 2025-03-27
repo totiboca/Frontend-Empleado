@@ -312,7 +312,7 @@ const [remito, setRemito] = useState("");
                         onChange={handleChange}
                       />
                     ) : (
-                      new Date(mov.fecha_carga).toLocaleDateString()
+                      formatDateUTC(mov.fecha_carga)
                     )}
                   </td>
 
