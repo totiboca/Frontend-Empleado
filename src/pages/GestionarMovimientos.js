@@ -222,7 +222,7 @@ const [remito, setRemito] = useState("");
       placeholder="Ej: 123456"
     />
   </div>
-  <button onClick={handleFiltrar}>Filtrar</button>
+  <button onClick={handleFiltrar} className="back-button">Filtrar</button>
   <button onClick={() => navigate(-1)} className="back-button">
         Volver
       </button>
