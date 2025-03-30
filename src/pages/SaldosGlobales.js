@@ -24,9 +24,13 @@ const toggleMenu = () => {
   const [fletero, setFletero] = useState("");
   const [mes, setMes] = useState(""); // Filtro por mes en la tabla principal
 
-  // NUEVOS: Campos de rango de fechas
+  // Campos de rango de fechas
   const [fechaInicio, setFechaInicio] = useState("");
   const [fechaFin, setFechaFin] = useState("");
+
+    // Estados para las opciones dinámicas
+    const [ciudadesOptions, setCiudadesOptions] = useState([]);
+    const [operadoresOptions, setOperadoresOptions] = useState([]);
 
   // Ordenamiento (tabla principal)
   const [sortBy, setSortBy] = useState("");
@@ -59,6 +63,42 @@ const toggleMenu = () => {
     fetchSaldosCiudad();
     fetchSaldosMes();
   }, [rutaFilterMes]);
+
+   // useEffect para cargar opciones dinámicas al montar el componente
+   useEffect(() => {
+    // Para Ciudad: aprovechamos el endpoint que agrupa por ciudad
+    const fetchCiudadesOptions = async () => {
+      try {
+        const resp = await API.get("/empleado/saldos-ciudad", {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        });
+        // Suponiendo que resp.data es un array de objetos con la propiedad 'ciudad'
+        const ciudades = resp.data.map(item => item.ciudad);
+        // Removemos duplicados, por si acaso:
+        const uniqueCiudades = [...new Set(ciudades)];
+        setCiudadesOptions(uniqueCiudades);
+      } catch (error) {
+        console.error("Error al obtener opciones de ciudad:", error);
+      }
+    };
+
+    // Para Operador Logístico: asumiendo que tienes un endpoint que devuelva los operadores
+    const fetchOperadoresOptions = async () => {
+      try {
+        // Por ejemplo, podrías tener un endpoint '/empleado/filtros-operadores'
+        const resp = await API.get("/empleado/filtros-operadores", {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        });
+        // Se espera que resp.data sea un array de objetos, por ejemplo, con { id: ..., nombre: ... }
+        setOperadoresOptions(resp.data);
+      } catch (error) {
+        console.error("Error al obtener opciones de operadores:", error);
+      }
+    };
+
+    fetchCiudadesOptions();
+    fetchOperadoresOptions();
+  }, []);
 
   // ============================================================
   // Funciones para obtener datos desde la API
@@ -283,30 +323,35 @@ const toggleMenu = () => {
         </div>
         <div className="filtro-item">
           <label>Ciudad:</label>
-          <input
-            type="text"
-            value={ciudad}
-            onChange={(e) => setCiudad(e.target.value)}
-            placeholder="Ciudad"
-          />
+          <select value={ciudad} onChange={(e) => setCiudad(e.target.value)}>
+            <option value="">Selecciona una ciudad</option>
+            {ciudadesOptions.map((item, idx) => (
+              <option key={idx} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="filtro-item">
-          <label>Logistico:</label>
-          <input
-            type="text"
-            value={fletero}
-            onChange={(e) => setFletero(e.target.value)}
-            placeholder="Operador Logistico"
-          />
+          <label>Operador Logístico:</label>
+          <select value={fletero} onChange={(e) => setFletero(e.target.value)}>
+            <option value="">Selecciona un operador</option>
+            {operadoresOptions.map((op, idx) => (
+              <option key={idx} value={op.nombre}>
+                {op.nombre}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="filtro-item">
           <label>Punto de Entrega:</label>
-          <input
-            type="text"
-            value={cv}
-            onChange={(e) => setCv(e.target.value)}
-            placeholder="Punto de Entrega"
-          />
+          {/* Si este campo es fijo (por ENUM), puedes dejarlo estático */}
+          <select value={cv} onChange={(e) => setCv(e.target.value)}>
+            <option value="">Selecciona un punto de entrega</option>
+            <option value="226">226</option>
+            <option value="MAR DEL PLATA">Mar del Plata</option>
+            <option value="SANTA TERESITA">Santa Teresita</option>
+          </select>
         </div>
         {/* Nuevos campos para rango de fechas */}
         <div className="filtro-item">
