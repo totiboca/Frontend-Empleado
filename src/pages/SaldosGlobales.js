@@ -320,28 +320,40 @@ const toggleMenu = () => {
             onChange={(e) => setNombre(e.target.value)}
             placeholder="Nombre del cliente"
           />
-        </div>
-        <div className="filtro-item">
+                </div>
+                <div className="filtro-item">
           <label>Ciudad:</label>
-          <select value={ciudad} onChange={(e) => setCiudad(e.target.value)}>
-            <option value="">Selecciona una ciudad</option>
-            {ciudadesOptions.map((item, idx) => (
-              <option key={idx} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
+          <input
+            type="text"
+            list="ciudadesOptions"
+            value={ciudad}
+            onChange={(e) => setCiudad(e.target.value)}
+            placeholder="Selecciona o escribe una ciudad"
+          />
+          <datalist id="ciudadesOptions">
+            {ciudadesOptions
+              .sort((a, b) => a.localeCompare(b))
+              .map((item, idx) => (
+                <option key={idx} value={item} />
+              ))}
+          </datalist>
         </div>
-        <div className="filtro-item">
+                <div className="filtro-item">
           <label>Operador Logístico:</label>
-          <select value={fletero} onChange={(e) => setFletero(e.target.value)}>
-            <option value="">Selecciona un operador</option>
-            {operadoresOptions.map((op, idx) => (
-              <option key={idx} value={op.nombre}>
-                {op.nombre}
-              </option>
-            ))}
-          </select>
+          <input
+            type="text"
+            list="operadoresOptions"
+            value={fletero}
+            onChange={(e) => setFletero(e.target.value)}
+            placeholder="Selecciona o escribe un operador"
+          />
+          <datalist id="operadoresOptions">
+            {operadoresOptions
+              .sort((a, b) => a.nombre.localeCompare(b.nombre))
+              .map((op, idx) => (
+                <option key={idx} value={op.nombre} />
+              ))}
+          </datalist>
         </div>
         <div className="filtro-item">
           <label>Punto de Entrega:</label>
