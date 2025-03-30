@@ -110,7 +110,19 @@ const [remito, setRemito] = useState("");
   // Guardar edición
   const handleGuardarEdicion = async (id) => {
     try {
-      await API.put(`/empleado/movimientos/${id}`, editingData, {
+      const dataToSend = {
+        ...editingData,
+        // Aseguramos el formato YYYY-MM-DD
+        fecha_remito: editingData.fecha_remito
+          ? new Date(editingData.fecha_remito).toISOString().slice(0, 10)
+          : "",
+        fecha_carga: editingData.fecha_carga
+          ? new Date(editingData.fecha_carga).toISOString().slice(0, 10)
+          : "",
+      };
+
+
+      await API.put(`/empleado/movimientos/${id}`, dataToSend, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setEditingId(null);
@@ -118,9 +130,13 @@ const [remito, setRemito] = useState("");
       fetchMovimientos();
     } catch (error) {
       console.error("Error al actualizar movimiento:", error);
-      alert("Error al actualizar el movimiento.");
-    }
-  };
+       // Si el backend devuelve un mensaje, lo mostramos
+    const errMsg = error.response && error.response.data && error.response.data.error
+    ? error.response.data.error
+    : "Error al actualizar el movimiento";
+  alert(errMsg);
+}
+};
 
   // Cancelar edición
   const handleCancelarEdicion = () => {
