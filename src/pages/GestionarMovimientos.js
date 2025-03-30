@@ -223,6 +223,9 @@ const [remito, setRemito] = useState("");
     />
   </div>
   <button onClick={handleFiltrar}>Filtrar</button>
+  <button onClick={() => navigate(-1)} className="back-button">
+        Volver
+      </button>
 </div>
 
 
@@ -367,9 +370,7 @@ const [remito, setRemito] = useState("");
         </tbody>
       </table>
 
-      <button onClick={() => navigate(-1)} className="back-button">
-        Volver
-      </button>
+     
     </div>
   );
 }
